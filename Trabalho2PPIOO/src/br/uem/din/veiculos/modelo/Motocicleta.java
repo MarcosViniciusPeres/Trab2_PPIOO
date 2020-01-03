@@ -10,20 +10,23 @@ package br.uem.din.veiculos.modelo;
  * @author Vini
  */
 public class Motocicleta extends Veiculo{
-    private final int KM = 10;
-    private final int velocidade = 5;
-
+    private int KM;
+    private int velocidade;
+    private String placa;
+    
     @Override
     public void deslocar() {
         if(this.getEstado().equals(Estado.PARADO)){
             this.setEstado(Estado.MOVIMENTO);
         }
+        KM += 20;
         this.setQuilometragem(KM);
     }
 
     @Override
     public void acelerar() {
         if(this.getEstado().equals(Estado.MOVIMENTO)){
+            velocidade += 10;
             this.setVelocidade(velocidade);
         }
     }
@@ -31,5 +34,6 @@ public class Motocicleta extends Veiculo{
     @Override
     public void frear() {
         this.setEstado(Estado.PARADO);
+        velocidade = 0;
     }
 }

@@ -7,19 +7,37 @@ package br.uem.din.veiculos.controladores;
 
 import br.uem.din.veiculos.modelo.Automovel;
 import br.uem.din.veiculos.modelo.Estado;
+import br.uem.din.veiculos.modelo.Motocicleta;
 import br.uem.din.veiculos.modelo.Veiculo;
+import br.uem.din.veiculos.modelo.VeiculoDao;
 
 /**
  *
  * @author Vini
  */
 public class Controlador {
-    Veiculo veiculo;
+    VeiculoDao veiculoDao = new VeiculoDao();
     
-    public void criarAutomovel() {
-        veiculo = new Automovel();
-        veiculo.setEstado(Estado.PARADO);
-        System.out.println("Veiculo criado com sucesso");
+    public void criarVeiculo() {
+        veiculoDao.criarVeiculo();   
+    }
+    
+    public void consultarVeiculo(){
+        veiculoDao.consultarVeiculos();
+    }
+    
+    public void alterarVeiculo(){
+        veiculoDao.alterarVeiculo();
+    }
+    
+    public void deletarVeiculo(){
+        veiculoDao.consultarVeiculos();
+        veiculoDao.deletarVeiculo();
+    }
+    
+    public Veiculo escolherVeiculo(){
+       Veiculo v = veiculoDao.escolherVeiculo();
+       return v;
     }
     
     public void deslocar(Veiculo v) {
@@ -32,7 +50,7 @@ public class Controlador {
             v.acelerar();
             System.out.println("Velocidade = " + v.getVelocidade() + "km/h");
         } else {
-            System.out.println("Impossivel acelerar – veiculo parado");
+            System.out.println("Impossivel acelerar – Veículo está parado");
         }
     }
     
@@ -41,7 +59,4 @@ public class Controlador {
         System.out.println("Veiculo freou");
     }
     
-    public Veiculo getVeiculo() {
-        return veiculo;
-    }
 }

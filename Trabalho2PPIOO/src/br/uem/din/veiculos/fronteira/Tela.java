@@ -6,6 +6,8 @@
 package br.uem.din.veiculos.fronteira;
 
 import br.uem.din.veiculos.controladores.Controlador;
+import br.uem.din.veiculos.modelo.Veiculo;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
@@ -32,23 +34,80 @@ public class Tela {
         }
         return null;
     }
+        
     public void iniciar() {
-        controlador.criarAutomovel();
+        Veiculo v = controlador.escolherVeiculo();
+        
+        if(v == null){
+            return;
+        }
+        
         Acao acao;
         do {
             acao = menu();
             switch (acao) {
                 case DESLOCAR:
-                    controlador.deslocar(controlador.getVeiculo());
+                    controlador.deslocar(v);
                     break;
                 case ACELERAR:
-                    controlador.acelerar(controlador.getVeiculo());
+                    controlador.acelerar(v);
                     break;
                 case FREAR:
-                    controlador.frear(controlador.getVeiculo());
+                    controlador.frear(v);
+                    break;
+                case VOLTAR:
+                    this.crudVeiculos();
                     break;
             }
         } while (!acao.equals(Acao.SAIR));
     }
+    
+    public void crudVeiculos(){
+        int opcao = 1;
+
+        while (opcao != 0) {
+
+            scanner = new Scanner(System.in);
+            System.out.println("\n--------------------OPÇÕES---------------------");
+            System.out.println("(1) Adcionar Veiculo"
+                    + "\n(2) Consultar Veículo"
+                    + "\n(3) Alterar Veículo"
+                    + "\n(4) Deletar Veículo"
+                    + "\n(5) Escolher Automovel"
+                    + "\n(0) Sair do programa");
+            System.out.println("-----------------------------------------------");
+            System.out.print("Digite uma opção valida: ");
+
+            try {
+                opcao = scanner.nextInt();
+            } catch (InputMismatchException E) {
+                opcao = -1;
+            }
+            
+            switch (opcao) {
+                case 0:
+                    System.out.println("Saindo do Programa");
+                    System.exit(0);
+                case 1:
+                    controlador.criarVeiculo();
+                    break;
+                case 2:
+                    controlador.consultarVeiculo();
+                    break;
+                case 3:
+                    controlador.alterarVeiculo();
+                    break;
+                case 4:
+                    controlador.deletarVeiculo();
+                    break;
+                case 5:
+                    this.iniciar();
+                default:
+                    System.out.println("ERRO: Opção inválida.");
+                    break;
+            }
+        }
+    }    
+    
     
 }

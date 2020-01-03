@@ -12,6 +12,7 @@ package br.uem.din.veiculos.modelo;
 public abstract class Veiculo {
     public int velocidade;
     public int quilometragem;
+    public String placa;
     public Estado estado;
 
     public int getVelocidade() {
@@ -37,7 +38,14 @@ public abstract class Veiculo {
     public void setEstado(Estado estado) {
         this.estado = estado;
     }
-    
+
+    public String getPlaca() {
+        return placa;
+    }
+
+    public void setPlaca(String placa) {
+        this.placa = placa;
+    }
     
     public abstract void deslocar();
     public abstract void acelerar();
