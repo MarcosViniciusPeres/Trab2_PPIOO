@@ -10,8 +10,8 @@ package br.uem.din.veiculos.modelo;
  * @author Vini
  */
 public class Motocicleta extends Veiculo{
-    private int KM;
-    private int velocidade;
+    private final int KM = 20;
+    private final int VELOCIDADE = 10;
     private String placa;
     
     @Override
@@ -19,21 +19,43 @@ public class Motocicleta extends Veiculo{
         if(this.getEstado().equals(Estado.PARADO)){
             this.setEstado(Estado.MOVIMENTO);
         }
-        KM += 20;
         this.setQuilometragem(KM);
     }
 
     @Override
     public void acelerar() {
-        if(this.getEstado().equals(Estado.MOVIMENTO)){
-            velocidade += 10;
-            this.setVelocidade(velocidade);
+        if(this.getEstado().equals(Estado.MOVIMENTO)){    
+            this.setVelocidade(VELOCIDADE);
         }
     }
 
     @Override
     public void frear() {
         this.setEstado(Estado.PARADO);
-        velocidade = 0;
+    }
+    
+    @Override
+    public void acelerarTurbo(){
+        try{
+            if(acelerarAutomatico() == true){
+                if(this.getEstado().equals(Estado.MOVIMENTO)){          
+                        int velocidade2x = 2*VELOCIDADE;
+                        this.setVelocidade(velocidade2x);              
+                    }
+            }else{
+                System.out.println("Não poderá acelerar, Irá Passar a Velocidade de 100 km/h");
+            }
+        }catch(NullPointerException exception){
+            System.out.println("Problema ao escolher um Veiculo.");
+        }    
+    }
+    @Override
+    public boolean acelerarAutomatico(){  
+        if(this.getEstado().equals(Estado.MOVIMENTO)){
+            if(this.getVelocidade() < 100){
+                return true;
+            }
+        }
+        return false;     
     }
 }

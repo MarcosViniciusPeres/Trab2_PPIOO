@@ -56,7 +56,16 @@ public class Controlador {
     
     public void frear(Veiculo v) {
         v.frear();
-        System.out.println("Veiculo freou");
+        System.out.println("Veiculo Freou");
+    }
+    
+    public void acelerarTurbo(Veiculo v){
+        if (v.getEstado().equals(Estado.MOVIMENTO)) {
+            v.acelerarTurbo();
+            System.out.println("Velocidade = " + v.getVelocidade() + "km/h");
+        } else {
+            System.out.println("Impossivel acelerar – Veículo está parado");
+        }
     }
     
 }

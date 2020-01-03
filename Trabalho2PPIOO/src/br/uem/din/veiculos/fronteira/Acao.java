@@ -10,5 +10,5 @@ package br.uem.din.veiculos.fronteira;
  * @author Vini
  */
 public enum Acao {
-    SAIR, DESLOCAR, ACELERAR, FREAR, VOLTAR;
+    SAIR, DESLOCAR, ACELERAR, FREAR, ACELERARTURBO, VOLTAR;
 }

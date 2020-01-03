@@ -55,6 +55,9 @@ public class Tela {
                 case FREAR:
                     controlador.frear(v);
                     break;
+                case ACELERARTURBO:
+                    controlador.acelerarTurbo(v);
+                    break;             
                 case VOLTAR:
                     this.crudVeiculos();
                     break;
@@ -107,7 +110,5 @@ public class Tela {
                     break;
             }
         }
-    }    
-    
-    
+    }      
 }

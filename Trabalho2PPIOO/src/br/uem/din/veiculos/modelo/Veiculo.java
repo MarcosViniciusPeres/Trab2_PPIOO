@@ -20,7 +20,7 @@ public abstract class Veiculo {
     }
 
     public void setVelocidade(int velocidade) {
-        this.velocidade = velocidade;
+        this.velocidade += velocidade;
     }
 
     public int getQuilometragem() {
@@ -28,7 +28,7 @@ public abstract class Veiculo {
     }
 
     public void setQuilometragem(int quilometragem) {
-        this.quilometragem = quilometragem;
+        this.quilometragem += quilometragem;
     }
 
     public Estado getEstado() {
@@ -50,4 +50,7 @@ public abstract class Veiculo {
     public abstract void deslocar();
     public abstract void acelerar();
     public abstract void frear();
+    public abstract void acelerarTurbo();
+    public abstract boolean acelerarAutomatico();
+    
 }
