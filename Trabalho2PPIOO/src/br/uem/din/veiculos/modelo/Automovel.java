@@ -24,8 +24,12 @@ public class Automovel extends Veiculo {
 
     @Override
     public void acelerar() {
-        if(this.getEstado().equals(Estado.MOVIMENTO)){
-            this.setVelocidade(VELOCIDADE);
+        if(acelerarAutomatico() == true){
+            if(this.getEstado().equals(Estado.MOVIMENTO)){    
+                this.setVelocidade(VELOCIDADE);
+            }
+        }else{
+            System.out.println("Não poderá acelerar, Irá Passar a Velocidade de 100 km/h");
         }
     }
 
@@ -52,11 +56,15 @@ public class Automovel extends Veiculo {
     
     @Override
     public boolean acelerarAutomatico(){  
-        if(this.getEstado().equals(Estado.MOVIMENTO)){
-            if(this.getVelocidade() < 100){
-                return true;
+        try {
+            if(this.getEstado().equals(Estado.MOVIMENTO)){
+                if(this.getVelocidade() < 100){
+                    return true;
+                }
             }
-        }
+        }catch(NullPointerException exception){
+            System.out.println("Problema ao escolher um Veiculo.");
+        }     
         return false;     
     }
     

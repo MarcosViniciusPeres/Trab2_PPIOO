@@ -24,8 +24,12 @@ public class Motocicleta extends Veiculo{
 
     @Override
     public void acelerar() {
-        if(this.getEstado().equals(Estado.MOVIMENTO)){    
-            this.setVelocidade(VELOCIDADE);
+        if(acelerarAutomatico() == true){
+            if(this.getEstado().equals(Estado.MOVIMENTO)){    
+                this.setVelocidade(VELOCIDADE);
+            }
+        }else{
+            System.out.println("Não poderá acelerar, Irá Passar a Velocidade de 100 km/h");
         }
     }
 

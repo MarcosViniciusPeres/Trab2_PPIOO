@@ -41,6 +41,13 @@ public class VeiculoDao {
                     
                     placaVeiculo = placaVeiculo.toUpperCase();
                     
+                    for(int i = 0 ; i < listaVeiculos.size(); i++){
+                        if(listaVeiculos.get(i).getPlaca().trim().equals(placaVeiculo.trim())){
+                            System.out.println("Já Existe Essa Placa Cadastrada em Nosso Sistema.");
+                            return;
+                        }  
+                    }
+                   
                     veiculo.setPlaca(placaVeiculo);
                     
                     listaVeiculos.add(veiculo);
@@ -54,6 +61,13 @@ public class VeiculoDao {
                     String placaVeiculo = leitor.next();
                     
                     placaVeiculo = placaVeiculo.toUpperCase();
+                    
+                    for(int i = 0 ; i < listaVeiculos.size(); i++){
+                        if(listaVeiculos.get(i).getPlaca().trim().equals(placaVeiculo.trim())){
+                            System.out.println("Já Existe Essa Placa Cadastrada em Nosso Sistema.");
+                            return;
+                        }  
+                    }
                     
                     veiculo.setPlaca(placaVeiculo);
                     
