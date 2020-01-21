@@ -55,11 +55,16 @@ public class Motocicleta extends Veiculo{
     }
     @Override
     public boolean acelerarAutomatico(){  
-        if(this.getEstado().equals(Estado.MOVIMENTO)){
-            if(this.getVelocidade() < 100){
-                return true;
+        try {
+            if(this.getEstado().equals(Estado.MOVIMENTO)){
+                if(this.getVelocidade() < 100){
+                    return true;
+                }
             }
+        } catch(NullPointerException exception){
+            System.out.println("Problema ao escolher uma motocicleta");
         }
+        
         return false;     
     }
 }

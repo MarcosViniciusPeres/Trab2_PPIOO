@@ -63,7 +63,7 @@ public class Automovel extends Veiculo {
                 }
             }
         }catch(NullPointerException exception){
-            System.out.println("Problema ao escolher um Veiculo.");
+            System.out.println("Problema ao escolher um Automovel."+exception.getMessage());
         }     
         return false;     
     }

@@ -35,9 +35,8 @@ public class Controlador {
         veiculoDao.deletarVeiculo();
     }
     
-    public Veiculo escolherVeiculo(){
-       Veiculo v = veiculoDao.escolherVeiculo();
-       return v;
+    public Veiculo escolherVeiculo(){ 
+       return  veiculoDao.escolherVeiculo();
     }
     
     public void deslocar(Veiculo v) {

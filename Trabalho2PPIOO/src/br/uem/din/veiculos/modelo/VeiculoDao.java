@@ -149,6 +149,7 @@ public class VeiculoDao {
     public Veiculo escolherVeiculo(){
         boolean existeVeiculo = false;
         leitor = new Scanner(System.in);
+        
         if(!listaVeiculos.isEmpty()){
             System.out.println("-----Informe a Placa do Veiculo que Deseja Escolher-----");
             String placaEscolhida = leitor.next();
