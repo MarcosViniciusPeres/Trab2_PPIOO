@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package br.uem.din.veiculos.modelo;
 
 import java.util.ArrayList;
@@ -10,10 +5,7 @@ import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
-/**
- *
- * @author Vini
- */
+
 public class VeiculoDao {
     private List<Veiculo> listaVeiculos = new ArrayList();
     Veiculo veiculo;
@@ -77,15 +69,8 @@ public class VeiculoDao {
         }  
     }
     
-    public void consultarVeiculos(){
-        if(listaVeiculos.isEmpty()){
-            System.out.println("Ainda não há Veiculos Cadastrados");
-        }else{
-            System.out.println("--------LISTA DE VEICULOS----------");
-            for(Veiculo v : listaVeiculos){       
-                System.out.println(v.getPlaca());
-            } 
-        }  
+    public List<Veiculo> consultarVeiculos(){
+        return listaVeiculos;
     }
     
     public void alterarVeiculo(){

@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package br.uem.din.veiculos.fronteira;
 
 import br.uem.din.veiculos.controladores.Controlador;
@@ -10,10 +5,6 @@ import br.uem.din.veiculos.modelo.Veiculo;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-/**
- *
- * @author Vini
- */
 public class Tela {
     Controlador controlador = new Controlador();
     Scanner scanner = new Scanner(System.in);

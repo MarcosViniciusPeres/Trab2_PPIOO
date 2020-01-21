@@ -1,14 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package br.uem.din.veiculos.modelo;
 
-/**
- *
- * @author Vini
- */
 public class Motocicleta extends Veiculo{
     private final int KM = 20;
     private final int VELOCIDADE = 10;
