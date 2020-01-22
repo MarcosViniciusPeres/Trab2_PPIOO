@@ -3,8 +3,10 @@ package br.uem.din.veiculos.modelo;
 public class Automovel extends Veiculo {
     private final int KM = 10;
     private final int VELOCIDADE = 5;
-    private String placa;
 
+    public Automovel() {
+    }
+    
     @Override
     public void deslocar() {
         if(this.getEstado().equals(Estado.PARADO)){
@@ -41,7 +43,7 @@ public class Automovel extends Veiculo {
                 System.out.println("Não poderá acelerar, Irá Passar a Velocidade de 100 km/h");
             }
         }catch(NullPointerException exception){
-            System.out.println("Problema ao escolher um Veiculo.");
+            System.out.println("Problema ao escolher um Automovel.");
         }      
     }
     
@@ -54,7 +56,7 @@ public class Automovel extends Veiculo {
                 }
             }
         }catch(NullPointerException exception){
-            System.out.println("Problema ao escolher um Automovel."+exception.getMessage());
+            System.out.println("Problema ao escolher um Automovel.");
         }     
         return false;     
     }

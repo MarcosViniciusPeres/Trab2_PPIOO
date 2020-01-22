@@ -110,7 +110,7 @@ public class VeiculoDao {
     }
     
     public void deletarVeiculo(){
-        boolean existeVeiculo = false;
+       
         if(!listaVeiculos.isEmpty()){
             System.out.println("-----Informe a Placa do Veiculo a Ser Deletado-----");
             leitor = new Scanner(System.in);
@@ -122,11 +122,10 @@ public class VeiculoDao {
                 if(listaVeiculos.get(i).getPlaca().trim().equals(placaDeletada.trim())){
                     listaVeiculos.remove(i);
                     System.out.println("Veiculo Deletado Com Sucesso");
-                    existeVeiculo = true;
+                   
+                }else{
+                    System.out.println("Placa não encontrada ou Inválida");
                 }  
-            }
-            if(existeVeiculo = false){
-                System.out.println("Placa não encontrada ou Inválida");
             }
         }
     }

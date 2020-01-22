@@ -3,7 +3,10 @@ package br.uem.din.veiculos.modelo;
 public class Motocicleta extends Veiculo{
     private final int KM = 20;
     private final int VELOCIDADE = 10;
-    private String placa;
+
+    public Motocicleta() {
+    }
+    
     
     @Override
     public void deslocar() {
@@ -41,7 +44,7 @@ public class Motocicleta extends Veiculo{
                 System.out.println("Não poderá acelerar, Irá Passar a Velocidade de 100 km/h");
             }
         }catch(NullPointerException exception){
-            System.out.println("Problema ao escolher um Veiculo.");
+            System.out.println("Problema ao escolher uma Motocicleta.");
         }    
     }
     @Override
